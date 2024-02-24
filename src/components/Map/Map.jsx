@@ -17,7 +17,7 @@ const Map = ({ lat, lng }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[52.535632, 13.461753]} draggable={true}>
+        <Marker position={[lat, lng]}>
           <Popup>
             Hello <br /> You are hier
           </Popup>

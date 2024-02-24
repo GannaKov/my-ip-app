@@ -46,7 +46,7 @@ const App = () => {
 };
 
 export default App;
-
+//netlify
 //https://geo.ipify.org/api/v2/country,city?apiKey=at_5h3pSQBtq0YpHx3jjCnA8dQzEzYRp&ipAddress=8.8.8.8
 
 //https://geo.ipify.org/api/v2/country,city?apiKey=at_5h3pSQBtq0YpHx3jjCnA8dQzEzYRp&ipAddress=8.8.8.8

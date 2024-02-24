@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import "leaflet/dist/leaflet.css";
 
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Popup, TileLayer } from "react-leaflet";
+import { Marker } from "react-leaflet/Marker";
 import styles from "./Map.module.css";
 
 const Map = ({ lat, lng }) => {

@@ -4,15 +4,22 @@ import { getIp, getCountryInfo } from "./services/requests";
 import Map from "./components/Map/Map";
 
 import InfoPage from "./pages/InfoPage/InfoPage";
+import SharedLayout from "./components/SharedLayout/SharedLayout";
+import Spinner from "./components/Spinner";
 
 const App = () => {
   const [idData, setIpData] = useState(null);
   const [countryData, setCountryData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     getIp()
       .then((res) => setIpData(res))
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log(error.message))
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
@@ -23,10 +30,18 @@ const App = () => {
     }
   }, [idData]);
   return (
-    <div className="appWrp">
-      <InfoPage idData={idData} countryData={countryData} />
-      <Map />
-    </div>
+    <>
+      <SharedLayout />
+      {loading && <Spinner />}
+      <div className="appWrp">
+        {idData && countryData && (
+          <InfoPage idData={idData} countryData={countryData} />
+        )}
+        {idData && countryData && (
+          <Map lat={idData.location.lat} lng={idData.location.lng} />
+        )}
+      </div>
+    </>
   );
 };
 

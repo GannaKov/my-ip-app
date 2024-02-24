@@ -3,13 +3,6 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import styles from "./InfoPage.module.css";
 
-// import {
-//   MapContainer,
-//   Marker,
-//   Popup,
-//   TileLayer,
-// } from "https://cdn.esm.sh/react-leaflet";
-
 const InfoPage = ({ countryData, idData }) => {
   return (
     <div className={styles.container}>
@@ -20,15 +13,20 @@ const InfoPage = ({ countryData, idData }) => {
         </TabList>
 
         <TabPanel>
-          <h2 className={styles.title}>Your IP Info</h2>
-          {idData && countryData && (
-            <div className={styles.containerInner}>
-              <p className={styles.text}>{idData.ip}</p>
-              <p className={styles.text}>{idData.location.country}</p>
-              <p className={styles.text}>{idData.location.region}</p>
-              <p className={styles.text}>{idData.location.city}</p>
-            </div>
-          )}
+          <div className={styles.cardWrp}>
+            <h2 className={styles.title}>Your IP Info</h2>
+            {idData && countryData && (
+              <div className={styles.containerInner}>
+                <p className={styles.text}>
+                  <span className={styles.subTitle}>IP:&#32;</span>
+                  {idData.ip}
+                </p>
+                <p className={styles.text}>{idData.location.country}</p>
+                <p className={styles.text}>{idData.location.region}</p>
+                <p className={styles.text}>{idData.location.city}</p>
+              </div>
+            )}
+          </div>
         </TabPanel>
         <TabPanel>
           <h2 className={styles.title}>Information About Country</h2>

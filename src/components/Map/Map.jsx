@@ -1,16 +1,17 @@
+/* eslint-disable react/prop-types */
 import "leaflet/dist/leaflet.css";
 
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import styles from "./Map.module.css";
 
-const Map = () => {
+const Map = ({ lat, lng }) => {
   return (
     <div className={styles.container}>
       <MapContainer
-        center={[52.535632, 13.461753]}
+        center={[lat, lng]}
         zoom={9}
         scrollWheelZoom={true}
-        style={{ height: "400px", width: "400px" }}
+        style={{ width: "100%", height: "400px" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -18,7 +19,7 @@ const Map = () => {
         />
         <Marker position={[52.535632, 13.461753]} draggable={true}>
           <Popup>
-            Hello <br /> I am hier
+            Hello <br /> You are hier
           </Popup>
         </Marker>
       </MapContainer>

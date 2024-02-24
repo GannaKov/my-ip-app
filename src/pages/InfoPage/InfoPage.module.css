@@ -1,0 +1,23 @@
+.container {
+  padding: 1rem;
+}
+.containerInner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100 vh;
+}
+
+.text {
+  margin-bottom: 1rem;
+}
+.subTitle {
+  font-weight: 500;
+}
+.title {
+  margin-bottom: 2rem;
+}
+.flafImg {
+  width: 200px;
+}

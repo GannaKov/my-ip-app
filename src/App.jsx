@@ -1,12 +1,30 @@
 import "./App.css";
+import { useState, useEffect } from "react";
+import { getIp, getCountryInfo } from "./services/requests";
 import Map from "./components/Map/Map";
 
 import InfoPage from "./pages/InfoPage/InfoPage";
 
 const App = () => {
+  const [idData, setIpData] = useState(null);
+  const [countryData, setCountryData] = useState(null);
+
+  useEffect(() => {
+    getIp()
+      .then((res) => setIpData(res))
+      .catch((error) => console.log(error.message));
+  }, []);
+
+  useEffect(() => {
+    if (idData) {
+      getCountryInfo(idData.location.country)
+        .then((res) => setCountryData(res))
+        .catch((error) => console.log(error.message));
+    }
+  }, [idData]);
   return (
     <div className="appWrp">
-      <InfoPage />
+      <InfoPage idData={idData} countryData={countryData} />
       <Map />
     </div>
   );
